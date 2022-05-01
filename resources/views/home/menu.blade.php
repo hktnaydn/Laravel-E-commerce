@@ -8,7 +8,7 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav mr-auto py-0">
-                <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
+                <a href="{{route('home')}}" class="nav-item nav-link active">ANASAYFA</a>
                 <a href="{{route('aboutus')}}" class="nav-item nav-link">Hakkımızda</a>
                 <a href="{{route('references')}}" class="nav-item nav-link">Referanslar</a>
                 <a href="{{route('faq')}}" class="nav-item nav-link">Sık Sorulan Sorular</a>
