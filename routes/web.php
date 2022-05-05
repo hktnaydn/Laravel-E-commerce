@@ -24,6 +24,7 @@ Route::get('/contact',[\App\Http\Controllers\HomeController::class,'contact'])->
 Route::get('/product/{id}/{slug}',[\App\Http\Controllers\HomeController::class,'product'])->name('product');
 Route::get('/categoryproducts/{id}/{slug}',[\App\Http\Controllers\HomeController::class,'categoryproducts'])->name('categoryproducts');
 
+Route::get('/addtocart/{id}',[\App\Http\Controllers\HomeController::class,'addtocart'])->whereNumber('id')->name('addtocart');
 
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Setting;
 
 use Illuminate\Http\Request;
@@ -24,12 +25,14 @@ class HomeController extends Controller
         $setting=Setting::first();
         $daily=Product::select('id','title','image','price','slug','durum')->limit(8)->inRandomOrder()->get();
         $last=Product::select('id','title','image','price','slug','durum')->limit(8)->orderByDesc('id')->get();
-        $picked=Product::select('id','title','image','price','slug','durum')->limit(8)->inRandomOrder()->get();
+        $cheap=Product::select('id','title','image','price','slug','durum')->limit(8)->orderBy('price')->get();
+        $picked=Product::select('id','title','image','price','slug','durum')->limit(8)->orderByDesc('id')->get();
         $data=[
             'setting'=>$setting,
             'daily'=>$daily,
             'last'=>$last,
             'picked'=>$picked,
+            'cheap'=>$cheap,
             'page'=>'home'
         ];
         return view('home.index',$data);
@@ -37,6 +40,13 @@ class HomeController extends Controller
 
     public function product($id,$slug)
     {
+        $data=Product::find($id);
+        $datalist=Image::where('product_id',$id)->get();
+       return view('home.productdetail',['data'=>$data,'datalist'=>$datalist]);
+    }
+    public function addtocart($id)
+    {
+        echo "Sepete Eklendi <br>";
         $data=Product::find($id);
         print_r($data);
         exit();
