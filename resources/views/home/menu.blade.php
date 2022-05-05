@@ -21,7 +21,7 @@
                       <a class="nav-link" data-toggle="dropdown">{{Auth::user()->name}} <i class="fa fa-user-o"></i></a>
                         <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
                                           <a href="{{route('myprofile')}}" class="dropdown-item">Hesabım</a> 
-                                          <a href="" class="dropdown-item">Ürünlerim</a> 
+                                          <a href="{{route('home')}}" class="dropdown-item">Cüzdanım</a> 
                                           <a href="" class="dropdown-item">Siparişlerim</a> 
                                           <a href="{{route('logout')}}" class="dropdown-item">Çıkış Yap</a>         
                         </div>

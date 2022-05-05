@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Product;
-use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function index()
     {
         $datalist=Product::all();
-        return view('admin.product',['datalist'=>$datalist]);
+        return view('home.user_product',['datalist'=>$datalist]);
     }
 
     /**
@@ -30,7 +30,7 @@ class ProductController extends Controller
     public function create()
     {
         $datalist=Category::with('children')->get();
-        return view('admin.product_add', ['datalist' => $datalist]);
+        return view('home.user_product_add', ['datalist' => $datalist]);
 
     }
 
@@ -52,11 +52,11 @@ class ProductController extends Controller
             $data->keywords=$request->input('keywords');
             $data->description=$request->input('description');
             $data->image=Storage::putFile('images',$request->file('image'));
-            $data->size=$request->input('size');
             $data->slug=$request->input('slug');
+            $data->size=$request->input('size');
             $data->durum=$request->input('durum');
             $data->save();
-            return redirect()->route('admin_products');
+            return redirect()->route('user_products');
         }
 
     /**
@@ -80,7 +80,7 @@ class ProductController extends Controller
     {
         $data=Product::find($id);
         $datalist=Category::with('children')->get();
-        return view('admin.product_edit',['data'=>$data,'datalist'=>$datalist]);
+        return view('home.user_product_edit',['data'=>$data,'datalist'=>$datalist]);
     }
 
     /**
@@ -107,7 +107,7 @@ class ProductController extends Controller
         $data->slug=$request->input('slug');
         $data->durum=$request->input('durum');
         $data->save();
-        return redirect()->route('admin_products');
+        return redirect()->route('user_products');
     }
 
     /**
@@ -121,6 +121,6 @@ class ProductController extends Controller
         
         DB::table('products')->where('id','=',$id)->delete();
 
-        return redirect()->route('admin_products');
+        return redirect()->route('user_products');
     }
 }

@@ -14,7 +14,7 @@
         </div>
         <div class="custom-control d-flex align-items-center justify-content-between mb-3">
 
-            <label  for="size-all"><a href="">Ürünlerim</a></label>
+            <label  for="size-all"><a href="{{route('user_products')}}">Ürünlerim</a></label>
         </div>
         <div class="custom-control  d-flex align-items-center justify-content-between mb-3">
 
