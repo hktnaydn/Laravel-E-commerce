@@ -120,7 +120,6 @@ class ProductController extends Controller
     {
         
         DB::table('products')->where('id','=',$id)->delete();
-
         return redirect()->route('user_products');
     }
 }

@@ -104,7 +104,11 @@
                                 </div>
                                 <div class="card-footer d-flex justify-content-between bg-light border">
                                     <a href="{{route('product',['id'=>$rs->id,'slug'=>$rs->slug])}}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Detaylar</a>
-                                    <a href="{{route('addtocart',['id'=>$rs->id])}}" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Sepete Ekle</a>
+                                    <form action="{{route('user_shopcart_add',['id'=>$rs->id])}}" method="POST">
+                                        @csrf
+                                                            <button  class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>Sepete Ekle</button>
+                                                            
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -158,8 +162,12 @@
                                             </div>
                                             <div class="card-footer d-flex justify-content-between bg-light border">
                                                 <a href="{{route('product',['id'=>$rs->id,'slug'=>$rs->slug])}}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Detaylar</a>
-                                                <a href="{{route('addtocart',['id'=>$rs->id])}}" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Sepete Ekle</a>
-                                            </div>
+                                                <form action="{{route('user_shopcart_add',['id'=>$rs->id])}}" method="POST">
+                                                    @csrf
+                                                                        <button  class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>Sepete Ekle</button>
+                                                                        
+                                                </form>                                      
+                                                  </div>
                                         </div>
                                     </div>
                     @endforeach
@@ -189,8 +197,12 @@
                                                 </div>
                                                 <div class="card-footer d-flex justify-content-between bg-light border">
                                                     <a href="{{route('product',['id'=>$rs->id,'slug'=>$rs->slug])}}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Detaylar</a>
-                                                    <a href="{{route('addtocart',['id'=>$rs->id])}}" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Sepete Ekle</a>
-                                                </div>
+                                                    <form action="{{route('user_shopcart_add',['id'=>$rs->id])}}" method="POST">
+                                                        @csrf
+                                                                            <button  class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>Sepete Ekle</button>
+                                                                            
+                                                    </form>                         
+                                                                       </div>
                                             </div>
                                         </div>
                         @endforeach
@@ -221,8 +233,12 @@
                                             </div>
                                             <div class="card-footer d-flex justify-content-between bg-light border">
                                                 <a href="{{route('product',['id'=>$rs->id,'slug'=>$rs->slug])}}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Detaylar</a>
-                                                <a href="{{route('addtocart',['id'=>$rs->id])}}" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Sepete Ekle</a>
-                                            </div>
+                                                <form action="{{route('user_shopcart_add',['id'=>$rs->id])}}" method="POST">
+                                                    @csrf
+                                                                        <button  class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>Sepete Ekle</button>
+                                                                        
+                                                </form>                                           
+                                             </div>
                                         </div>
                                     </div>
                     @endforeach

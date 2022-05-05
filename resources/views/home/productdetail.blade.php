@@ -62,8 +62,15 @@
                
             </div><br><br>
             <div class="d-flex align-items-center mb-4 pt-2">
-                
-                <a href="{{route('addtocart',['id'=>$data->id])}}" class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>Sepete Ekle</a>
+                <form action="{{route('user_shopcart_add',['id'=>$data->id])}}" method="POST">
+                    @csrf
+                                        <button  class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>Sepete Ekle</button>
+                                        @if (session('alert'))
+                                            <div class="alert alert-success">
+                                            {{ session('alert') }}
+                                            </div>
+                                        @endif
+                </form>
             </div>
             
         </div>
