@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 class CategoryController extends Controller
 {
 
@@ -45,17 +46,20 @@ class CategoryController extends Controller
      */
     public function create(Request $request)
     {
-        DB::table('categories')->insert([
-        'parent_id'=>$request->input('parent_id'),
-        'title'=>$request->input('title'),
-        'keywords'=>$request->input('keywords'),
-        'description'=>$request->input('description'),
-        'slug'=>$request->input('slug'),
-        'status'=>$request->input('status'),
+            $data=new Category();
+            $data->parent_id=$request->input('parent_id');
+            $data->slug=$request->input('slug');
+            $data->title=$request->input('title',);
+            $data->status=$request->input('status');
+            $data->keywords=$request->input('keywords');
+            $data->description=$request->input('description');
+            $data->image=Storage::putFile('images',$request->file('image'));
+       
+            $data->save();
+            return redirect()->route('admin_category');
 
-        ]);
-        return redirect()->route('admin_category');
-        
+
+
     }
 
     /**

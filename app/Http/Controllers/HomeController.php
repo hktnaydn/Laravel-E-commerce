@@ -22,7 +22,17 @@ class HomeController extends Controller
     public function index()
     {
         $setting=Setting::first();
-        return view('home.index',['setting'=>$setting]);
+        $daily=Product::select('id','title','image','price','slug','durum')->limit(8)->inRandomOrder()->get();
+        $last=Product::select('id','title','image','price','slug','durum')->limit(8)->orderByDesc('id')->get();
+        $picked=Product::select('id','title','image','price','slug','durum')->limit(8)->inRandomOrder()->get();
+        $data=[
+            'setting'=>$setting,
+            'daily'=>$daily,
+            'last'=>$last,
+            'picked'=>$picked,
+            'page'=>'home'
+        ];
+        return view('home.index',$data);
     }
 
     public function product($id,$slug)

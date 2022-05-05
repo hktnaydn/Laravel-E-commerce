@@ -61,6 +61,10 @@
                               <input type="text" id="inputName" name="description" class="form-control" required>
                           </div>
                           <div class="form-group">
+                            <label >Resim</label>
+                            <input type="file" id="inputName" name="image" class="form-control" required>
+                        </div>
+                          <div class="form-group">
                             <label >Slug</label>
                             <input type="text" id="inputName" name="slug" class="form-control" required>
                         </div>
