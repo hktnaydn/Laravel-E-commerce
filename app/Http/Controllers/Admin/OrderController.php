@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -13,6 +13,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+
 class OrderController extends Controller
 {
     /**
@@ -22,8 +23,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $datalist=Order::where('user_id',Auth::id())->get();
-        return view('home.user_order',['datalist'=>$datalist]);
+        $datalist=Order::all();
+        return view('admin.orders',['datalist'=>$datalist]);
     }
 
     /**
@@ -31,11 +32,9 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $total=$request->input('total');
-        $datalist=Shopcart::where('user_id',Auth::id())->get();
-        return view('home.user_order_add',['total'=>$total,'datalist'=>$datalist]);
+        //
     }
 
     /**
@@ -46,30 +45,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $data=new Order();
-        $data->name=$request->input('name');
-        $data->address=$request->input('address');
-        $data->email=$request->input('email');
-        $data->phone=$request->input('phone');
-        $data->total=$request->input('total');
-       
-        $data->user_id=Auth::id();
-        $data->IP="ıp";
-        $data->status="new";
-        
-        $datalist=Shopcart::where('user_id',Auth::id())->get();
-        foreach ($datalist as $rs) {
-            $data->owner=$rs->product->user_id;
-            $data->save();
-            $data2=new Orderitem();
-            $data2->user_id=Auth::id();
-            $data2->product_id=$rs->product_id;
-            $data2->order_id=$data->id;
-            $data2->price=$rs->product->price;
-            $data2->save();
-        }
-        DB::table('shopcarts')->where('user_id','=',Auth::id())->delete();
-        return redirect()->route('user_orders')->with('success','Sipariş Verildi');
+        //
     }
 
     /**
@@ -78,10 +54,9 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order,$id)
+    public function show(Order $order)
     {
-        $datalist=Orderitem::where('user_id',Auth::id())->where('order_id',$id)->get();
-        return view('home.user_order_item',['datalist'=>$datalist]);
+        //
     }
 
     /**
@@ -90,9 +65,13 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit(Order $order,$id)
     {
-        //
+        $data=Order::where('id',$id)->first();
+        $data->status="accept";
+        $data->save();
+        return redirect()->back()->with('alert', 'Sipariş Onaylandı');
+
     }
 
     /**

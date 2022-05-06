@@ -1,6 +1,8 @@
 <?php
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ShopcartController;
@@ -30,6 +32,10 @@ Route::get('/categoryproducts/{id}/{slug}',[\App\Http\Controllers\HomeController
 
 Route::get('/addtocart/{id}',[\App\Http\Controllers\HomeController::class,'addtocart'])->whereNumber('id')->name('addtocart');
 
+  #owner
+  Route::get('/orderwait',[\App\Http\Controllers\HomeController::class,'orderwait'])->name('orderwait');
+  Route::get('/orderwaitshow/{id}',[\App\Http\Controllers\HomeController::class,'orderwaitshow'])->name('orderwaitshow');
+  Route::get('/orderwaitshipping/{id}',[\App\Http\Controllers\HomeController::class,'orderwaitshipping'])->name('orderwaitshipping');
 
 
 Route::get('/welcome', function () {
@@ -75,6 +81,18 @@ Route::middleware('auth')->prefix('admin')->group(function()
 Route::get('/setting',[\App\Http\Controllers\Admin\SettingController::class,'index'])->name('admin_setting');
 Route::post('/setting/update',[\App\Http\Controllers\Admin\SettingController::class,'update'])->name('admin_setting_update');
 
+
+
+#Order
+Route::prefix('order')->group(function(){
+    Route::get('/',[AdminOrderController::class,'index'])->name('admin_orders');
+    Route::post('/create',[AdminOrderController::class,'create'])->name('admin_order_add');
+    Route::post('/store',[AdminOrderController::class,'store'])->name('admin_order_store');
+    Route::get('/edit/{id}',[AdminOrderController::class,'edit'])->name('admin_order_edit');
+    Route::post('/update/{id}',[AdminOrderController::class,'update'])->name('admin_order_update');
+    Route::get('/delete/{id}',[AdminOrderController::class,'destroy'])->name('admin_order_delete');
+    Route::get('/show/{id}',[AdminOrderController::class,'show'])->name('admin_order_show');
+});
 
 });
 
@@ -132,9 +150,15 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function()
         Route::get('/edit/{id}',[OrderController::class,'edit'])->name('user_order_edit');
         Route::post('/update/{id}',[OrderController::class,'update'])->name('user_order_update');
         Route::get('/delete/{id}',[OrderController::class,'destroy'])->name('user_order_delete');
-        Route::get('/show',[OrderController::class,'show'])->name('user_order_show');
+        Route::get('/show/{id}',[OrderController::class,'show'])->name('user_order_show');
     });
 
+
+
+    #owner
+    Route::get('/orderwait',[\App\Http\Controllers\HomeController::class,'orderwait'])->name('orderwait');
+Route::get('/orderwaitshow/{id}',[\App\Http\Controllers\HomeController::class,'orderwaitshow'])->name('orderwaitshow');
+Route::get('/orderwaitshipping/{id}',[\App\Http\Controllers\HomeController::class,'orderwaitshipping'])->name('orderwaitshipping');
 });
 
 

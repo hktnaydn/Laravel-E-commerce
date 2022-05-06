@@ -18,7 +18,7 @@
         </div>
         <div class="custom-control  d-flex align-items-center justify-content-between mb-3">
 
-            <label for="size-all"><a href="">Mesajlarım</a></label>
+            <label for="size-all"><a href="orderwait">Gelen Siparişler</a></label>
 
         </div>
         <div class="custom-control  d-flex align-items-center justify-content-between mb-3">

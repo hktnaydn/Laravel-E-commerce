@@ -41,14 +41,14 @@ class ShopcartController extends Controller
      */
     public function store(Request $request,$id)
     {
-        $check=Shopcart::where('product_id',$id)->where('user_id',Auth::id())->first();
+        $check=Shopcart::where('user_id',Auth::id())->first();
         $auth=Product::find($id);
         if(Auth::id()==$auth->user_id){
             return redirect()->back()->with('alert', 'Bu Ürün Zaten Sizin');
         }
         else{
                 if($check!=null){
-                        return redirect()->back()->with('alert', 'Bu Ürün Zaten Sepetinizde');
+                        return redirect()->back()->with('alert', 'Sepetiniz Dolu');
                         }
                 else
                     {

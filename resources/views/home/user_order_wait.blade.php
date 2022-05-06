@@ -6,11 +6,11 @@
  <!-- Page Header Start -->
  <div class="container-fluid bg-secondary mb-5">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-        <h1 class="font-weight-semi-bold text-uppercase mb-3">Siparişlerim</h1>
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Bekleyen Siparişlerim</h1>
         <div class="d-inline-flex">
             <p class="m-0"><a href="">Hesabım</a></p>
             <p class="m-0 px-2">-</p>
-            <p class="m-0">Siparişlerim</p>
+            <p class="m-0">Bekleyen Siparişlerim</p>
         </div>
     </div>
 </div>
@@ -46,13 +46,13 @@
                                     <th>Toplam</th>
                                     <th>Tarih</th>
                                     <th>Statü</th>
-                                    <th>Düzenle</th>
-                                   
+                                    <th>Detay</th>
+                                    <th>Kargola</th>
                                 </tr>
                                 </thead>
                                 <tbody>@foreach($datalist as $rs)
                                 <tr>
-                                    <?php if($rs->user_id==Auth::User()->id)
+                                  <?php if($rs->status=="new" || $rs->status=="shipping" )
                                     {}
 
                                     else {
@@ -68,7 +68,9 @@
                                     <td>{{$rs->total}}TL</td>
                                     <td>{{$rs->created_at}}</td>
                                     <td>{{$rs->status}}</td>
-                                    <td><a href="{{route('user_order_show',['id'=>$rs->id])}}">Sipariş Detay</a></td>
+                                    <td><a href="{{route('orderwaitshow',['id'=>$rs->id])}}">Sipariş Detay</a></td>
+                                    <td><a href="{{route('orderwaitshipping',['id'=>$rs->id])}}">Kargoladım</a></td>
+
                                 </tr> @endforeach
                                 </tbody>
                                 </table>

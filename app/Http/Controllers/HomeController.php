@@ -5,6 +5,8 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Image;
 use App\Models\Setting;
+use App\Models\Order;
+use App\Models\Orderitem;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,6 +58,24 @@ class HomeController extends Controller
         $data=Category::find($id);
             $datalist=Product::where('category_id',$id)->get();
             return view('home.categoryproducts',['datalist'=>$datalist,'data'=>$data]);
+    }
+    public function orderwait()
+    {
+        $datalist=Order::where('owner',Auth::id())->get();
+        return view('home.user_order_wait',['datalist'=>$datalist]);
+    }
+    public function orderwaitshow($id)
+    {
+        $datalist=Orderitem::where('order_id',$id)->get();
+        return view('home.user_order_item',['datalist'=>$datalist]);
+    }
+    public function orderwaitshipping($id)
+    {
+        $data=Order::where('id',$id)->first();
+        $data->status="shipping";
+        $data->save();
+        $datalist=Order::where('owner',Auth::id())->get();
+        return view('home.user_order_wait',['datalist'=>$datalist]);
     }
     public function aboutus()
     {
