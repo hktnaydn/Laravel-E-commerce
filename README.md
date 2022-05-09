@@ -55,3 +55,5 @@ Admin kullanıcısı panel üzerinden site ayarlarını rahatlıkla değiştireb
 •	İletişim
 •	Hakkımızda
 
+## Veritabanı Tasarımı İlişkiler laravel models içerisinde oluşturulduğu için tasarımda gözükmemektedir
+![githubdatabase](https://user-images.githubusercontent.com/57008579/167486916-1b0d97e8-49b4-40e6-b67f-5e2567d1dbca.jpg)
