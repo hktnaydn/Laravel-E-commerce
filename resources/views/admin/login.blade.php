@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Log in</title>
+  <title>AlSat | Giriş Yap</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -22,8 +22,16 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
+      @if (session('alert'))
+      <div class="alert alert-success">
+         <strong>    {{ session('alert') }} </strong>
+      </div>
+      <div class="alert alert-error">
+        <strong>    {{ session('alert') }} </strong>
+     </div>
+  @endif
       <p class="login-box-msg">Alanları doldurunuz</p>
-
+      
       <form action="{{route('admin_logincheck')}}" method="post">
         @csrf
         <div class="input-group mb-3">

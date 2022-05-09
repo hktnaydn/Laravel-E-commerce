@@ -10,7 +10,7 @@
         <div class="d-inline-flex">
             <p class="m-0"><a href="">Home</a></p>
             <p class="m-0 px-2">-</p>
-            <p class="m-0">Blank</p>
+            <p class="m-0">Profil Bilgileri</p>
         </div>
     </div>
 </div>

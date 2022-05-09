@@ -26,6 +26,26 @@ class OrderController extends Controller
         $datalist=Order::all();
         return view('admin.orders',['datalist'=>$datalist]);
     }
+    public function indexnew()
+    {
+        $datalist=Order::where('status',"new")->get();
+        return view('admin.new_orders',['datalist'=>$datalist]);
+    }
+    public function indexaccept()
+    {
+        $datalist=Order::where('status',"accept")->get();
+        return view('admin.new_orders',['datalist'=>$datalist]);
+    }
+    public function indexshipping()
+    {
+        $datalist=Order::where('status',"shipping")->get();
+        return view('admin.new_orders',['datalist'=>$datalist]);
+    }
+    public function indexcompleted()
+    {
+        $datalist=Order::where('status',"completed")->get();
+        return view('admin.new_orders',['datalist'=>$datalist]);
+    }
 
     /**
      * Show the form for creating a new resource.
