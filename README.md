@@ -27,38 +27,55 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+A.	Kategori İşlemleri
+E-ticaret sistemimizde bir Admin paneli bulunmaktadır.
+Admin kullanıcısı bu panel üzerinden istediği şekilde ana kategori ve alt kategoriler ekleyebilmektedir. 
+Kategoriye ait başlık, anahtar kelime, açıklama değerleri girilmektedir.
+Bölüm Hakkında Raporun Sonunda Ekler Kısmındadır.
+B.	Ürün İşlemleri
+Aynı zamanda Admin paneli üzerinden ürünlerde eklenebilmektedir. Sistemimiz ikinci el alışveriş sistemi olduğu için sıradan kullanıcılarda ürün girişi yapabilmektedir.
+Admin Kullanıcısı sistemdeki tüm ürünleri düzenleyip silebilme yetkisine sahiptir sıradan kullanıcılar ise sadece kendisine ait ürünlere erişebilmektedir.
+Bölüm Hakkında Raporun Sonunda Ekler Kısmındadır.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+C.	Kullanıcı İşlemleri
+E-ticaret sistemimize kayıt olunabilir ve giriş yapılabilir.
+Her kullanıcı kayıt olduktan sonra kendi bilgilerini düzenleyebilir. Admin kullanıcısı tüm kullanıcalara erişebilir müdahale edebilir.
+Bölüm Hakkında Raporun Sonunda Ekler Kısmındadır.
 
-## Code of Conduct
+D.	Sepet
+Kullanıcılar beğendikleri ürünü sepetine ekleyebilir, sepetinden geri çıkartabilir.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Kendi ürününü sepete ekleyemez.
 
-## Security Vulnerabilities
+Birden fazla ürünü sepete ekleyemez
+Bölüm Hakkında Raporun Sonunda Ekler Kısmındadır.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+E.	Sipariş
+Her kullanıcı kendi ürünlerine gelen siparişleri görebilir.
+Admin bütün siparişleri görebilir
 
-## License
+Satın alan kullanıcı süreci takip edebilir.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Sipariş Süreci; Yeni->Kabul edilen->Kargoda->Tamamlanmış
+Bölüm Hakkında Raporun Sonunda Ekler Kısmındadır.
+
+F.	Settings
+Admin kullanıcısı panel üzerinden site ayarlarını rahatlıkla değiştirebilir. Değiştirilebilen değerler ;
+•	Title
+•	Description
+•	Keywords
+•	Şirket İsmi
+•	Adres
+•	Telefon
+•	FAX
+•	Sosyal Medya Hesapları
+•	E-posta
+•	SMTP Değerleri
+•	Referanslarım 
+•	İletişim
+•	Hakkımızda
+
