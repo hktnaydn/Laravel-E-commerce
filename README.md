@@ -7,41 +7,39 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-A.	Kategori İşlemleri
+# A.	Kategori İşlemleri
 E-ticaret sistemimizde bir Admin paneli bulunmaktadır.
 Admin kullanıcısı bu panel üzerinden istediği şekilde ana kategori ve alt kategoriler ekleyebilmektedir. 
 Kategoriye ait başlık, anahtar kelime, açıklama değerleri girilmektedir.
-Bölüm Hakkında Raporun Sonunda Ekler Kısmındadır.
-B.	Ürün İşlemleri
+
+# B.	Ürün İşlemleri
 Aynı zamanda Admin paneli üzerinden ürünlerde eklenebilmektedir. Sistemimiz ikinci el alışveriş sistemi olduğu için sıradan kullanıcılarda ürün girişi yapabilmektedir.
 Admin Kullanıcısı sistemdeki tüm ürünleri düzenleyip silebilme yetkisine sahiptir sıradan kullanıcılar ise sadece kendisine ait ürünlere erişebilmektedir.
-Bölüm Hakkında Raporun Sonunda Ekler Kısmındadır.
 
 
-
-C.	Kullanıcı İşlemleri
+# C.	Kullanıcı İşlemleri
 E-ticaret sistemimize kayıt olunabilir ve giriş yapılabilir.
 Her kullanıcı kayıt olduktan sonra kendi bilgilerini düzenleyebilir. Admin kullanıcısı tüm kullanıcalara erişebilir müdahale edebilir.
-Bölüm Hakkında Raporun Sonunda Ekler Kısmındadır.
 
-D.	Sepet
+
+# D.	Sepet
 Kullanıcılar beğendikleri ürünü sepetine ekleyebilir, sepetinden geri çıkartabilir.
 
 Kendi ürününü sepete ekleyemez.
 
 Birden fazla ürünü sepete ekleyemez
-Bölüm Hakkında Raporun Sonunda Ekler Kısmındadır.
 
-E.	Sipariş
+
+# E.	Sipariş
 Her kullanıcı kendi ürünlerine gelen siparişleri görebilir.
 Admin bütün siparişleri görebilir
 
 Satın alan kullanıcı süreci takip edebilir.
 
 Sipariş Süreci; Yeni->Kabul edilen->Kargoda->Tamamlanmış
-Bölüm Hakkında Raporun Sonunda Ekler Kısmındadır.
 
-F.	Settings
+
+# F.	Settings
 Admin kullanıcısı panel üzerinden site ayarlarını rahatlıkla değiştirebilir. Değiştirilebilen değerler ;
 •	Title
 •	Description
